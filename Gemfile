@@ -29,6 +29,8 @@ gem 'spring',        group: :development
 gem 'slim-rails'
 gem 'devise'
 gem 'twitter-bootstrap-rails', git: 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
+gem 'carrierwave'
+gem 'remotipart'
 
 group :test, :development do
   gem 'rspec-rails'
