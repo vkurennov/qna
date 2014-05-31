@@ -33,8 +33,7 @@ ActiveRecord::Schema.define(version: 20140515152520) do
     t.string   "attachmentable_type"
   end
 
-  add_index "attachments", ["attachmentable_id"], name: "index_attachments_on_attachmentable_id", using: :btree
-  add_index "attachments", ["attachmentable_type"], name: "index_attachments_on_attachmentable_type", using: :btree
+  add_index "attachments", ["attachmentable_id", "attachmentable_type"], name: "index_attachments_on_attachmentable_id_and_attachmentable_type", using: :btree
 
   create_table "questions", force: true do |t|
     t.string   "title"
