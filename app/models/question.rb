@@ -1,5 +1,5 @@
 class Question < ActiveRecord::Base
-  has_many :answers
+  has_many :answers, -> { includes :attachments }
   has_many :attachments, as: :attachmentable
 
   validates :title, :body, presence: true
