@@ -5,10 +5,10 @@ ul
   - @question.attachments.each do |a|
     li= link_to a.file.identifier, a.file.url
 
-.answers
+.answers data={question_id: "#{@question.id}"}
   = render 'answers'
 
-= form_for [@question, @answer], remote: true, data: { type: :json } do |f|
+= form_for [@question, @answer], remote: true do |f|
   p
     = f.label :body, 'Your answer'
     .answer-errors
@@ -18,3 +18,5 @@ ul
       = a.label :file
       = a.file_field :file
   p= f.submit 'Create'
+
+= subscribe_to "/questions/#{@question.id}/answers"

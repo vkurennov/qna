@@ -31,6 +31,9 @@ gem 'devise'
 gem 'twitter-bootstrap-rails', git: 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 gem 'carrierwave'
 gem 'remotipart'
+gem 'private_pub'
+gem 'thin'
+
 
 group :test, :development do
   gem 'rspec-rails'
