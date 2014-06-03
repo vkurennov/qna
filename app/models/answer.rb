@@ -1,6 +1,7 @@
 class Answer < ActiveRecord::Base
   belongs_to :question
   has_many :attachments, as: :attachmentable
+  has_many :comments, as: :commentable
 
   validates :body, presence: true
 

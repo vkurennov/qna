@@ -1,0 +1,8 @@
+- parent.comments.each do |comment|
+  p= comment.body
+
+= form_for [parent, parent.comments.build], remote: true do |f|
+  p
+    = f.label :body, 'Comment'
+    = f.text_area :body
+  p = f.submit 'Post comment'    

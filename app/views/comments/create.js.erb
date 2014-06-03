@@ -1,0 +1,5 @@
+<% if parent_type == :question %>
+    $('.question .comments').html('<%= j render 'list' %>');
+<% elsif parent_type == :answer %>
+    $('#answer-<%= parent.id %> .answer-comments').html('<%= j render 'list' %>');
+<% end %>

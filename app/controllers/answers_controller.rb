@@ -1,25 +1,20 @@
-class AnswersController < ApplicationController
+class AnswersController < InheritedResources::Base
+  respond_to :js, :json
+  actions :create, :update
+
+  belongs_to :question
+
+
   def create
-    @question = Question.find(params[:question_id])
-    @answer = @question.answers.build(answer_params)
-
-    respond_to do |format|
-      if @answer.save
-        format.js do
-          PrivatePub.publish_to "/questions/#{@question.id}/answers", answer: @answer.to_json
-          render nothing: true
-        end
-      else
-        format.json { render json: @answer.errors.full_messages, status: :unprocessable_entity }
-        format.js
+    create! do |success, failure|
+      success.js do
+        PrivatePub.publish_to "/questions/#{parent.id}/answers", answer: resource.to_json
+        render nothing: true
       end
-    end
-  end
+      success.json { render json: resource.to_json }
 
-  def update
-    @answer = Answer.find(params[:id])
-    @answer.update(answer_params)
-    @question = @answer.question
+      failure.json { render json: @answer.errors.full_messages, status: :unprocessable_entity }
+    end
   end
 
   private

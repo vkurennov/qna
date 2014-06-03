@@ -33,6 +33,7 @@ gem 'carrierwave'
 gem 'remotipart'
 gem 'private_pub'
 gem 'thin'
+gem 'inherited_resources'
 
 
 group :test, :development do
