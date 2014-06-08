@@ -34,6 +34,8 @@ gem 'remotipart'
 gem 'private_pub'
 gem 'thin'
 gem 'inherited_resources'
+gem 'omniauth'
+gem 'omniauth-facebook'
 
 
 group :test, :development do
