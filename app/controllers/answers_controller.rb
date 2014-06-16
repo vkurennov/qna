@@ -19,6 +19,11 @@ class AnswersController < InheritedResources::Base
 
   private
 
+  def create_resource(object)
+    object.user = current_user
+    super
+  end
+
   def answer_params
     params.require(:answer).permit(:body, attachments_attributes: [:file])
   end
