@@ -7,6 +7,11 @@ class QuestionsController < InheritedResources::Base
 
   protected
 
+  def create_resource(object)
+    object.user = current_user
+    super
+  end
+
   def build_answer
     @answer = resource.answers.build
     @answer.attachments.build
