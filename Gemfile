@@ -36,7 +36,7 @@ gem 'thin'
 gem 'inherited_resources'
 gem 'omniauth'
 gem 'omniauth-facebook'
-
+gem 'cancan'
 
 group :test, :development do
   gem 'rspec-rails'

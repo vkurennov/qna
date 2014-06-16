@@ -5,7 +5,7 @@
       ul
         - answer.attachments.each do |a|
           li= link_to a.file.identifier, a.file.url
-      - if user_signed_in?
+      - if user_signed_in? && can?(:update, answer)
         p= link_to 'Edit', '', class: 'edit-answer-link', data: { answer_id: answer.id }
         p
           = form_for [@question, answer], remote: true, html: { id: "edit-answer-#{answer.id}"} do |f|
