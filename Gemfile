@@ -37,6 +37,7 @@ gem 'inherited_resources'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'cancan'
+gem 'doorkeeper'
 
 group :test, :development do
   gem 'rspec-rails'
@@ -49,5 +50,6 @@ end
 
 group :test do
   gem 'shoulda-matchers'
+  gem 'json_spec'
 end
 

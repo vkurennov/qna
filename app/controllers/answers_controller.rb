@@ -2,6 +2,8 @@ class AnswersController < InheritedResources::Base
   respond_to :js, :json
   actions :create, :update
 
+  load_and_authorize_resource
+
   belongs_to :question
 
 
