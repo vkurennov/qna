@@ -38,6 +38,10 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'cancan'
 gem 'doorkeeper'
+gem "active_model_serializers"
+gem 'oj'
+gem 'oj_mimic_json'
+gem 'redis-throttle', git: 'git@github.com:andreareginato/redis-throttle.git'
 
 group :test, :development do
   gem 'rspec-rails'

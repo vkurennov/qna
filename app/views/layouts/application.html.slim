@@ -28,7 +28,10 @@ html lang="en"
             ul.nav
               li= link_to "Link 1", "/path1"
               li= link_to "Link 2", "/path2"
-              li= link_to "Log out", destroy_user_session_path, method: :delete
+              - if !user_signed_in?
+                li= link_to "Log in", new_user_session_path
+              - else
+                li= link_to "Log out", destroy_user_session_path, method: :delete
 
     .container
       .main

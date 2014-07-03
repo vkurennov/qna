@@ -29,6 +29,10 @@ module Qna
                        request_specs: false,
                        controller_spec: true
       g.fixture_replacement :factory_girl, dir: 'spec/factories'
+
+      config.autoload_paths << Rails.root.join('lib/middleware')
+
+      config.middleware.insert_after Rack::Runtime, 'DailyRateLimit' unless Rails.env.test?
     end
   end
 end
