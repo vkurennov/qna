@@ -8,9 +8,13 @@ class Question < ActiveRecord::Base
 
   accepts_nested_attributes_for :attachments
 
-  after_create :calculate_reputation
+  after_create :update_reputation
 
   private
+
+  def update_reputation
+    self.delay.calculate_reputation
+  end
 
   def calculate_reputation
     reputation = Reputation.calculate(self)
