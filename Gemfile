@@ -49,6 +49,15 @@ gem 'sinatra', '>= 1.3.0', require: nil
 gem 'sidetiq'
 gem 'mysql2'
 gem 'thinking-sphinx'
+gem 'dotenv'
+gem 'dotenv-deployment', require: 'dotenv/deployment'
+
+group :development do
+  gem 'capistrano', require: false
+  gem 'capistrano-bundler', require: false
+  gem 'capistrano-rails', require: false
+  gem 'capistrano-rvm', require: false
+end
 
 group :test, :development do
   gem 'rspec-rails'
