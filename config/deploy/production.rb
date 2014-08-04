@@ -10,6 +10,7 @@ role :db,  %w{deployer@5.101.103.241}
 
 set :rails_env, :production
 set :stage, :production
+set :branch, 'lesson21'
 
 # Extended Server Syntax
 # ======================
