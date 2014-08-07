@@ -240,8 +240,24 @@ GEM
     rdoc (4.1.1)
       json (~> 1.4)
     redis (3.1.0)
+    redis-actionpack (4.0.0)
+      actionpack (~> 4)
+      redis-rack (~> 1.5.0)
+      redis-store (~> 1.1.0)
+    redis-activesupport (4.0.0)
+      activesupport (~> 4)
+      redis-store (~> 1.1.0)
     redis-namespace (1.5.0)
       redis (~> 3.0, >= 3.0.4)
+    redis-rack (1.5.0)
+      rack (~> 1.5)
+      redis-store (~> 1.1.0)
+    redis-rails (4.0.0)
+      redis-actionpack (~> 4)
+      redis-activesupport (~> 4)
+      redis-store (~> 1.1.0)
+    redis-store (1.1.4)
+      redis (>= 2.2)
     ref (1.0.5)
     remotipart (1.2.1)
     responders (1.1.0)
@@ -387,6 +403,7 @@ DEPENDENCIES
   pg
   private_pub
   rails (~> 4.1)
+  redis-rails
   redis-throttle!
   remotipart
   rspec-rails
