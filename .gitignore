@@ -46,3 +46,5 @@ certs/
 .zeus.sock
 
 dump.rdb
+config/*.sphinx.conf
+db/sphinx
