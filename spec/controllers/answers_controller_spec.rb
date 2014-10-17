@@ -1,6 +1,8 @@
 require 'spec_helper'
 
 describe AnswersController do
+  login_user
+
   let!(:question) { create :question }
 
   describe 'POST #create' do
