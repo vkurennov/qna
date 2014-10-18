@@ -1,0 +1,2 @@
+var parentSelector = '<%= @parent.is_a?(Question) ? ".question" : "#answer-#{@parent.id}" %>';
+$(parentSelector + ' .comments').html('<%= j render "list", parent: @parent %>');

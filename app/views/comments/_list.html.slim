@@ -1,0 +1,7 @@
+= render parent.comments
+=form_for [parent, parent.comments.build], remote: true, data: { type: :json } do |f|
+  p
+    = f.label :body, 'Comment'
+    = f.text_area :body
+  p
+    = f.submit 'Post comment'

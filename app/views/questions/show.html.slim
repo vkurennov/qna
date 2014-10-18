@@ -1,9 +1,12 @@
-h1= @question.title
-p= @question.body
-p Attachments:
-ul
-  - @question.attachments.each do |a|
-    li= link_to a.file.identifier, a.file.url
+.question
+  h1= @question.title
+  p= @question.body
+  p Attachments:
+  ul
+    - @question.attachments.each do |a|
+      li= link_to a.file.identifier, a.file.url
+  .comments
+    = render 'comments/list', parent: @question
 
 .answers data={question_id: "#{@question.id}"}
   = render 'answers'
@@ -14,7 +17,7 @@ ul
     .answer-errors
     = f.text_area :body
   p
-    = f.fields_for :attachments do |a|
+    = f.fields_for :attachments, @answer.attachments.build do |a|
       = a.label :file
       = a.file_field :file
   p= f.submit 'Create'

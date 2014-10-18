@@ -33,7 +33,7 @@ gem 'carrierwave'
 gem 'remotipart'
 gem 'private_pub'
 gem 'thin'
-
+gem 'responders'
 
 group :test, :development do
   gem 'rspec-rails'
