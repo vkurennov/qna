@@ -34,6 +34,7 @@ gem 'remotipart'
 gem 'private_pub'
 gem 'thin'
 gem 'responders'
+gem 'cancancan'
 
 group :test, :development do
   gem 'rspec-rails'

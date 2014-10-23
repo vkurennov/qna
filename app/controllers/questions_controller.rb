@@ -5,6 +5,8 @@ class QuestionsController < ApplicationController
 
   respond_to :html
 
+  authorize_resource
+
   def index
     respond_with(@questions = Question.all)
   end
@@ -21,7 +23,7 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    respond_with(@question = Question.create(question_params))
+    respond_with(@question = Question.create(question_params.merge(user: current_user)))
   end
 
   def update
