@@ -35,6 +35,7 @@ gem 'private_pub'
 gem 'thin'
 gem 'responders'
 gem 'cancancan'
+gem 'pundit'
 
 group :test, :development do
   gem 'rspec-rails'

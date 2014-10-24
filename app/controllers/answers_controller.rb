@@ -12,6 +12,7 @@ class AnswersController < ApplicationController
   end
 
   def update
+    authorize @answer
     @answer.update(answer_params)
     respond_with @answer
   end
