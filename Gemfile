@@ -36,6 +36,7 @@ gem 'thin'
 gem 'responders'
 gem 'cancancan'
 gem 'pundit'
+gem 'doorkeeper'
 
 group :test, :development do
   gem 'rspec-rails'
@@ -48,5 +49,6 @@ end
 
 group :test do
   gem 'shoulda-matchers'
+  gem 'json_spec'
 end
 
