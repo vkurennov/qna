@@ -24,6 +24,8 @@ GEM
       activesupport (= 4.1.0)
       builder (~> 3.1)
       erubis (~> 2.7.0)
+    active_model_serializers (0.8.1)
+      activemodel (>= 3.0)
     activemodel (4.1.0)
       activesupport (= 4.1.0)
       builder (~> 3.1)
@@ -126,6 +128,8 @@ GEM
     multi_json (1.9.2)
     nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
+    oj (2.9.8)
+    oj_mimic_json (1.0.1)
     orm_adapter (0.5.0)
     pg (0.17.1)
     polyglot (0.3.4)
@@ -230,6 +234,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_model_serializers
   cancancan
   capybara
   capybara-webkit
@@ -243,6 +248,8 @@ DEPENDENCIES
   jquery-rails
   json_spec
   launchy
+  oj
+  oj_mimic_json
   pg
   private_pub
   pundit
