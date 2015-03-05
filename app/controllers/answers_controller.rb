@@ -7,17 +7,17 @@ class AnswersController < InheritedResources::Base
   belongs_to :question
 
 
-  def create
-    create! do |success, failure|
-      success.js do
-        PrivatePub.publish_to "/questions/#{parent.id}/answers", answer: resource.to_json
-        render nothing: true
-      end
-      success.json { render json: resource.to_json }
-
-      failure.json { render json: @answer.errors.full_messages, status: :unprocessable_entity }
-    end
-  end
+  # def create
+  #   create! do |success, failure|
+  #     success.js do
+  #       PrivatePub.publish_to "/questions/#{parent.id}/answers", answer: resource.to_json
+  #       render nothing: true
+  #     end
+  #     success.json { render json: resource.to_json }
+  #
+  #     failure.json { render json: @answer.errors.full_messages, status: :unprocessable_entity }
+  #   end
+  # end
 
   private
 

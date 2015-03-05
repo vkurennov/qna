@@ -23,29 +23,29 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
-    actionmailer (4.1.0)
-      actionpack (= 4.1.0)
-      actionview (= 4.1.0)
+    actionmailer (4.1.4)
+      actionpack (= 4.1.4)
+      actionview (= 4.1.4)
       mail (~> 2.5.4)
-    actionpack (4.1.0)
-      actionview (= 4.1.0)
-      activesupport (= 4.1.0)
+    actionpack (4.1.4)
+      actionview (= 4.1.4)
+      activesupport (= 4.1.4)
       rack (~> 1.5.2)
       rack-test (~> 0.6.2)
-    actionview (4.1.0)
-      activesupport (= 4.1.0)
+    actionview (4.1.4)
+      activesupport (= 4.1.4)
       builder (~> 3.1)
       erubis (~> 2.7.0)
     active_model_serializers (0.8.1)
       activemodel (>= 3.0)
-    activemodel (4.1.0)
-      activesupport (= 4.1.0)
+    activemodel (4.1.4)
+      activesupport (= 4.1.4)
       builder (~> 3.1)
-    activerecord (4.1.0)
-      activemodel (= 4.1.0)
-      activesupport (= 4.1.0)
+    activerecord (4.1.4)
+      activemodel (= 4.1.4)
+      activesupport (= 4.1.4)
       arel (~> 5.0.0)
-    activesupport (4.1.0)
+    activesupport (4.1.4)
       i18n (~> 0.6, >= 0.6.9)
       json (~> 1.7, >= 1.7.7)
       minitest (~> 5.1)
@@ -56,6 +56,24 @@ GEM
     bcrypt (3.1.7)
     builder (3.2.2)
     cancan (1.6.10)
+    capistrano (3.2.1)
+      i18n
+      rake (>= 10.0.0)
+      sshkit (~> 1.3)
+    capistrano-bundler (1.1.2)
+      capistrano (~> 3.0)
+      sshkit (~> 1.2)
+    capistrano-rails (1.1.1)
+      capistrano (~> 3.1)
+      capistrano-bundler (~> 1.1)
+    capistrano-rvm (0.1.1)
+      capistrano (~> 3.0)
+      sshkit (~> 1.2)
+    capistrano-sidekiq (0.3.5)
+      capistrano
+      sidekiq
+    capistrano3-unicorn (0.2.1)
+      capistrano (~> 3.1, >= 3.1.0)
     capybara (2.2.1)
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
@@ -80,6 +98,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.7.0)
+    colorize (0.7.3)
     connection_pool (2.0.0)
     cookiejar (0.3.2)
     daemons (1.1.9)
@@ -93,6 +112,9 @@ GEM
     diff-lcs (1.2.5)
     doorkeeper (1.3.0)
       railties (>= 3.1)
+    dotenv (0.11.1)
+      dotenv-deployment (~> 0.0.2)
+    dotenv-deployment (0.0.2)
     em-http-request (1.1.2)
       addressable (>= 2.3.4)
       cookiejar
@@ -129,14 +151,17 @@ GEM
     hike (1.2.3)
     hiredis (0.5.2)
     http_parser.rb (0.6.0)
-    i18n (0.6.9)
+    i18n (0.6.11)
     ice_cube (0.12.1)
     inherited_resources (1.5.0)
       has_scope (~> 0.6.0.rc)
       responders (~> 1.0)
+    innertube (1.1.0)
     jbuilder (2.0.6)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
+    joiner (0.3.2)
+      activerecord (>= 4.1.0)
     jquery-rails (3.1.0)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
@@ -145,17 +170,24 @@ GEM
       multi_json (~> 1.0)
       rspec (>= 2.0, < 4.0)
     jwt (1.0.0)
+    kgio (2.9.2)
     launchy (2.4.2)
       addressable (~> 2.3)
+    libv8 (3.16.14.3)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    middleware (0.1.0)
     mime-types (1.25.1)
     mini_portile (0.5.3)
-    minitest (5.3.3)
-    multi_json (1.9.2)
+    minitest (5.4.0)
+    multi_json (1.10.1)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
+    mysql2 (0.3.16)
+    net-scp (1.2.1)
+      net-ssh (>= 2.6.5)
+    net-ssh (2.9.1)
     nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
     oauth2 (0.9.4)
@@ -178,7 +210,7 @@ GEM
       omniauth (~> 1.2)
     orm_adapter (0.5.0)
     pg (0.17.1)
-    polyglot (0.3.4)
+    polyglot (0.3.5)
     private_pub (1.0.3)
       faye
     rack (1.5.2)
@@ -188,30 +220,49 @@ GEM
       rack (>= 1.0)
     rack-throttle (0.3.0)
       rack (>= 1.0.0)
-    rails (4.1.0)
-      actionmailer (= 4.1.0)
-      actionpack (= 4.1.0)
-      actionview (= 4.1.0)
-      activemodel (= 4.1.0)
-      activerecord (= 4.1.0)
-      activesupport (= 4.1.0)
+    rails (4.1.4)
+      actionmailer (= 4.1.4)
+      actionpack (= 4.1.4)
+      actionview (= 4.1.4)
+      activemodel (= 4.1.4)
+      activerecord (= 4.1.4)
+      activesupport (= 4.1.4)
       bundler (>= 1.3.0, < 2.0)
-      railties (= 4.1.0)
+      railties (= 4.1.4)
       sprockets-rails (~> 2.0)
-    railties (4.1.0)
-      actionpack (= 4.1.0)
-      activesupport (= 4.1.0)
+    railties (4.1.4)
+      actionpack (= 4.1.4)
+      activesupport (= 4.1.4)
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
-    rake (10.3.1)
+    raindrops (0.13.0)
+    rake (10.3.2)
     rdoc (4.1.1)
       json (~> 1.4)
     redis (3.1.0)
+    redis-actionpack (4.0.0)
+      actionpack (~> 4)
+      redis-rack (~> 1.5.0)
+      redis-store (~> 1.1.0)
+    redis-activesupport (4.0.0)
+      activesupport (~> 4)
+      redis-store (~> 1.1.0)
     redis-namespace (1.5.0)
       redis (~> 3.0, >= 3.0.4)
+    redis-rack (1.5.0)
+      rack (~> 1.5)
+      redis-store (~> 1.1.0)
+    redis-rails (4.0.0)
+      redis-actionpack (~> 4)
+      redis-activesupport (~> 4)
+      redis-store (~> 1.1.0)
+    redis-store (1.1.4)
+      redis (>= 2.2)
+    ref (1.0.5)
     remotipart (1.2.1)
     responders (1.1.0)
       railties (>= 3.2, < 5)
+    riddle (1.5.11)
     rspec (2.14.1)
       rspec-core (~> 2.14.0)
       rspec-expectations (~> 2.14.0)
@@ -271,13 +322,27 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (~> 2.8)
+    sshkit (1.5.1)
+      colorize
+      net-scp (>= 1.1.2)
+      net-ssh (>= 2.8.0)
     temple (0.6.7)
+    therubyracer (0.12.1)
+      libv8 (~> 3.16.14.0)
+      ref
     thin (1.6.2)
       daemons (>= 1.0.9)
       eventmachine (>= 1.0.0)
       rack (>= 1.0.0)
+    thinking-sphinx (3.1.1)
+      activerecord (>= 3.1.0)
+      builder (>= 2.1.2)
+      innertube (>= 1.0.2)
+      joiner (>= 0.2.0)
+      middleware (>= 0.1.0)
+      riddle (>= 1.5.11)
     thor (0.19.1)
-    thread_safe (0.3.3)
+    thread_safe (0.3.4)
     tilt (1.4.1)
     timers (1.1.0)
     treetop (1.4.15)
@@ -285,11 +350,15 @@ GEM
       polyglot (>= 0.3.1)
     turbolinks (2.2.2)
       coffee-rails
-    tzinfo (1.1.0)
+    tzinfo (1.2.1)
       thread_safe (~> 0.1)
     uglifier (2.5.0)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    unicorn (4.8.3)
+      kgio (~> 2.6)
+      rack
+      raindrops (~> 0.7)
     warden (1.2.3)
       rack (>= 1.0)
     websocket-driver (0.3.3)
@@ -305,6 +374,12 @@ PLATFORMS
 DEPENDENCIES
   active_model_serializers
   cancan
+  capistrano
+  capistrano-bundler
+  capistrano-rails
+  capistrano-rvm
+  capistrano-sidekiq
+  capistrano3-unicorn
   capybara
   capybara-webkit
   carrierwave
@@ -312,19 +387,23 @@ DEPENDENCIES
   database_cleaner
   devise
   doorkeeper
+  dotenv
+  dotenv-deployment
   factory_girl_rails
   inherited_resources
   jbuilder (~> 2.0)
   jquery-rails
   json_spec
   launchy
+  mysql2
   oj
   oj_mimic_json
   omniauth
   omniauth-facebook
   pg
   private_pub
-  rails (= 4.1.0)
+  rails (~> 4.1)
+  redis-rails
   redis-throttle!
   remotipart
   rspec-rails
@@ -336,8 +415,11 @@ DEPENDENCIES
   sinatra (>= 1.3.0)
   slim-rails
   spring
+  therubyracer
   thin
+  thinking-sphinx
   turbolinks
   twitter-bootstrap-rails!
   uglifier (>= 1.3.0)
+  unicorn
   whenever

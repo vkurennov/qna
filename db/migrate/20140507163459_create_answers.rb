@@ -1,7 +1,8 @@
 class CreateAnswers < ActiveRecord::Migration
   def change
-    add_column :answers, :body, :text
-    add_column :answers, :question_id, :integer
-    add_index :answers, :question_id
+    create_table :answers do |t|
+      t.text :body
+      t.references :question, index:true
+    end
   end
 end

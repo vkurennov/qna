@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.0'
+gem 'rails', '~> 4.1'
 # Use postgresql as the database for Active Record
 gem 'pg'
 # Use SCSS for stylesheets
@@ -47,6 +47,23 @@ gem 'whenever'
 gem 'sidekiq'
 gem 'sinatra', '>= 1.3.0', require: nil
 gem 'sidetiq'
+gem 'mysql2'
+gem 'thinking-sphinx'
+gem 'dotenv'
+gem 'dotenv-deployment', require: 'dotenv/deployment'
+gem 'therubyracer'
+gem 'unicorn'
+gem 'redis-rails'
+
+
+group :development do
+  gem 'capistrano', require: false
+  gem 'capistrano-bundler', require: false
+  gem 'capistrano-rails', require: false
+  gem 'capistrano-rvm', require: false
+  gem 'capistrano-sidekiq', require: false
+  gem 'capistrano3-unicorn', require: false
+end
 
 group :test, :development do
   gem 'rspec-rails'

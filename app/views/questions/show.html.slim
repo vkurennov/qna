@@ -1,27 +1,28 @@
-.question
-  h1= resource.title
-  p= resource.body
-  p Attachments:
-  ul
-    - resource.attachments.each do |a|
-      li= link_to a.file.identifier, a.file.url
+- cache resource do
+  .question
+    h1= resource.title
+    p= resource.body
+    p Attachments:
+    ul
+      - resource.attachments.each do |a|
+        li= link_to a.file.identifier, a.file.url
 
-  p Comments:
-  .comments
-    = render 'comments/list', parent: resource
+    p Comments:
+    .comments
+      = render 'comments/list', parent: resource
 
-.answers data={question_id: "#{resource.id}"}
-  = render 'answers', question: resource
+  .answers data={question_id: "#{resource.id}"}
+    = render 'answers', question: resource
 
-= form_for [resource, @answer], remote: true do |f|
-  p
-    = f.label :body, 'Your answer'
-    .answer-errors
-    = f.text_area :body
-  p
-    = f.fields_for :attachments do |a|
-      = a.label :file
-      = a.file_field :file
-  p= f.submit 'Create'
+  = form_for [resource, @answer], remote: true do |f|
+    p
+      = f.label :body, 'Your answer'
+      .answer-errors
+      = f.text_area :body
+    p
+      = f.fields_for :attachments do |a|
+        = a.label :file
+        = a.file_field :file
+    p= f.submit 'Create'
 
 = subscribe_to "/questions/#{resource.id}/answers"
