@@ -1,4 +1,5 @@
-- collection.each do |question|
-  p= link_to question.title, question
+- cache collection_cache_key_for :question do
+  - collection.each do |question|
+    p= link_to question.title, question
 
-p= link_to 'Ask question', new_question_path
+  p= link_to 'Ask', new_question_path

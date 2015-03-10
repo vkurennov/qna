@@ -3,8 +3,6 @@
         $('.answer-errors').html('<%= j message %>');
     <% end %>
 <% else %>
-<% publish_to "/questions/#{parent.id}/answers" do %>
-    $('.answers').html('<%= j render 'questions/answers' %>');
-<% end %>
+    $('.answers').html('<%= j render 'questions/answers', question: parent %>');
     $('.new_answer #answer_body').val('');
 <% end %>
