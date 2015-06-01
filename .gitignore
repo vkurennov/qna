@@ -44,3 +44,5 @@ certs/
 # Ignore application configuration
 /config/application.yml
 .zeus.sock
+
+dump.rdb

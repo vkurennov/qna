@@ -9,4 +9,12 @@ class Answer < ActiveRecord::Base
   accepts_nested_attributes_for :attachments
 
   default_scope -> { order :created_at }
+
+  after_create :calculate_rating
+
+  private
+
+  def calculate_rating
+    Reputation.delay.calculate(self)
+  end
 end
