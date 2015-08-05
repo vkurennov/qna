@@ -20,6 +20,10 @@ module Qna
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
 
+    #config.autoload_paths += %W(#{config.root}/app/jobs)
+
+    config.active_job.queue_adapter = :sidekiq
+
     config.generators do |g|
       g.test_framework :rspec,
                        fixtures: true,
@@ -31,8 +35,6 @@ module Qna
       g.fixture_replacement :factory_girl, dir: 'spec/factories'
 
       config.autoload_paths << Rails.root.join('lib/middleware')
-
-      config.middleware.insert_after Rack::Runtime, 'DailyRateLimit' unless Rails.env.test?
     end
   end
 end

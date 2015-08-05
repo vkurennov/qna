@@ -10,11 +10,11 @@ class Answer < ActiveRecord::Base
 
   default_scope -> { order :created_at }
 
-  after_create :calculate_rating
+  after_create :update_reputation
 
   private
 
-  def calculate_rating
-    Reputation.delay.calculate(self)
+  def update_reputation
+    CalculateReputationJob.perform_later(self)
   end
 end
